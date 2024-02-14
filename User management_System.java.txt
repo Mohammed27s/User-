@@ -1,3 +1,7 @@
+
+// >>>>    User management System code snippet <<<<
+
+
 import java.util.Scanner;
 class User {
 
@@ -27,6 +31,21 @@ class User {
     public static String role_update;
     public static String userUpdate_input;
 
+    //User remove variables for removeUser()
+
+    public static String userName_remove;
+    public static String passWord_remove;
+    public static String role_remove;
+    public static String userRemove_input;
+
+    //This is variables for searchUser()
+
+    public static String usernameSearch_input;
+
+    //This is variables for viewUsersRole()
+
+    public static String userRole_input;
+
 
 
     public static void main(String[] args) {
@@ -48,6 +67,21 @@ class User {
         System.out.println("Update user profile information :- ");
         updateUser();
 
+        System.out.println("------------------------------------");
+
+        System.out.println("Deleting user profile information :- ");
+        removeUser();
+
+        System.out.println("------------------------------------");
+
+        System.out.println("Searching for Users :- "+"\n");
+        System.out.println("Which username you want to search ? Enter inside the box ");
+        searchUser();
+
+        System.out.println("------------------------------------");
+
+        System.out.println("View users by the role :- ");
+        viewUsersRole();
 
 
 
@@ -87,9 +121,7 @@ class User {
         passWord_update = passWord_view;
         role_update = role_view;
 
-
         System.out.println("Do you want to update user information ? (yes/no) : ");
-
         userUpdate_input =  in.nextLine();
 
         if(userUpdate_input.equals("yes")) {
@@ -105,7 +137,7 @@ class User {
 
         }
 
-    else if(userUpdate_input.equals("no")) {
+        else if(userUpdate_input.equals("no")) {
 
             System.out.println("** Nothing has been changed **");
         }
@@ -115,8 +147,68 @@ class User {
             System.out.println("Please enter (yes/no) format !!! ");
         }
 
+    }
+    //This is removeUser() function
+    public static void removeUser() {
 
+        userName_remove = userName_view;
+        passWord_remove = passWord_view;
+        role_remove = role_view;
 
+        System.out.println("Do you want to delete the user information ? (yes/no) format ");
+        userRemove_input = in.nextLine();
+
+        if(userRemove_input.equals("yes")) {
+            System.out.println("The user information has been deleted");
+
+            userName_remove = null;
+            passWord_remove = null;
+            role_remove = null;
+
+        } else if(userRemove_input.equals("no")) {
+
+            System.out.println("Nothing has been removed ");
+        }
+
+    }
+    //This is searchUser() function
+    public static void searchUser() {
+
+        System.out.println("Enter the username you want to search : ");
+           usernameSearch_input = in.nextLine();
+
+        if(usernameSearch_input.equals(userName_view)) {
+
+            System.out.println("The username is "+userName_view);
+
+        }
+        else if(usernameSearch_input.equals(userName_update)) {
+
+            System.out.println("The username is "+userName_update+" is exits ");
+        }
+        else {
+
+            System.out.println("This username is not exits ");
+        }
+
+    }
+    //This is viewUserRole() function
+    public static void viewUsersRole(){
+
+        System.out.println("Enter the role you want to view your user ");
+        userRole_input = in.nextLine();
+
+        if(userRole_input.equals(role_view)) {
+
+            System.out.println("Username : "+userName_view+"\n"+"Password : "+passWord_view+"\n"+"Role : "+role_view);
+        }
+        else if(userRole_input.equals(role_update)) {
+            System.out.println("Username : " + userName_update + "\n" + "Password : " + passWord_update +
+                    "\n" + "Role : " + role_update);
+        }
+        else {
+            System.out.println("This role is not exits");
+        }
 
 
     }
