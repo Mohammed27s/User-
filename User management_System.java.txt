@@ -1,76 +1,126 @@
 import java.util.Scanner;
 class User {
-    
+
     public static Scanner in = new Scanner(System.in);
     //User variables
-    
+
     public static String userName;
     public static String passWord;
     public static String role;
-    
+
     //User inputs variables for addUser()
-    
+
     public static String userName_input;
     public static String passWord_input;
     public static String role_input;
-    
+
     //User view variables for viewUser()
-    
+
     public static String userName_view;
     public static String passWord_view;
     public static String role_view;
-    
-    public static void main(String[] args) {
-        
-        System.out.println("*** Welcome to User managemnt System ***");
-        
-        System.out.println("------------------------------------");
-        
-        System.out.println("New User login :- "+"\n");
-          addUser();
-          
-        System.out.println("------------------------------------");
-        
-        System.out.println("View user profile information :- ");
-            viewUser();
-            
-        System.out.println("------------------------------------");
-        
 
-        
+    //User update variables for updateUser()
+
+    public static String userName_update;
+    public static String passWord_update;
+    public static String role_update;
+    public static String userUpdate_input;
+
+
+
+    public static void main(String[] args) {
+
+        System.out.println("*** Welcome to User management System ***");
+
+        System.out.println("------------------------------------");
+
+        System.out.println("New User login :- "+"\n");
+        addUser();
+
+        System.out.println("------------------------------------");
+
+        System.out.println("View user profile information :- "+"\n");
+        viewUser();
+
+        System.out.println("------------------------------------");
+
+        System.out.println("Update user profile information :- ");
+        updateUser();
+
+
+
+
     }
-    //This is addUser() function 
-    
+    //This is addUser() function
+
     public static void addUser() {
-        
+
         System.out.println("Enter your username : ");
         userName_input = in.nextLine();
-        
-         System.out.println("Enter your password : ");
-         passWord_input = in.nextLine();
-         
-          System.out.println("What is your role : ");
-          role_input = in.nextLine();
-    
+
+        System.out.println("Enter your password : ");
+        passWord_input = in.nextLine();
+
+        System.out.println("What is your role : ");
+        role_input = in.nextLine();
+
     }
-    
-    // This is viewUser() function 
-    
+
+    // This is viewUser() function
+
     public static void viewUser(){
-        
-    userName_view = userName_input;
-    passWord_view = passWord_input;
-    role_view = role_input;
-    
-    System.out.println("This is the user : "+userName_view+"\n"+" password : "+passWord_view+"\n"+"role : "+role_view);
-    
-          
-        
-        
+
+        userName_view = userName_input;
+        passWord_view = passWord_input;
+        role_view = role_input;
+
+        System.out.println("Username : "+userName_view+"\n"+
+                "Password : "+passWord_view+"\n"+"role : "+role_view);
+
     }
-    
-    
-    
+    //This is updateUser() function
+    public static void updateUser() {
+
+        //stored the previous values
+        userName_update = userName_view;
+        passWord_update = passWord_view;
+        role_update = role_view;
+
+
+        System.out.println("Do you want to update user information ? (yes/no) : ");
+
+        userUpdate_input =  in.nextLine();
+
+        if(userUpdate_input.equals("yes")) {
+
+            System.out.println("Enter new username :  ");
+            userName_update = in.nextLine();
+
+            System.out.println("Enter new password :  ");
+            passWord_update = in.nextLine();
+
+            System.out.println("Enter new role :  ");
+            role_update = in.nextLine();
+
+        }
+
+    else if(userUpdate_input.equals("no")) {
+
+            System.out.println("** Nothing has been changed **");
+        }
+
+        else {
+
+            System.out.println("Please enter (yes/no) format !!! ");
+        }
+
+
+
+
+
+    }
+
+
+
 }
-
-
